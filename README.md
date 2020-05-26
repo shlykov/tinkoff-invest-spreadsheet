@@ -1,16 +1,22 @@
 # Spreadsheet loader 
 Several scripts to import data from tinkoff invest open api to Google spreadsheets
 
+
+
 # TODO
 ## Portfolio
-- [ ] Current portfolio 
-- [ ] Portfolio snapshot 
+- [X] Current portfolio 
+- [X] Different accounts
+- [ ] Risk \ Price variability
 ## Market
 - [ ] Stocks 
 - [ ] Bonds
 - [ ] Etfs
 
-## 
+## Analitycs
+- [ ] Intrument type ratio
+- [ ] Risk / goal
+- [ ] Orderbook
 
 
 # Usefull links
