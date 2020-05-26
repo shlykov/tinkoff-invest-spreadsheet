@@ -1,4 +1,4 @@
-function Load(ticker) {
+function MarketPrice(ticker) {
   var res = UrlFetchApp.fetch("https://api.tinkoff.ru/trading/stocks/get", {
     method: "post",
     contentType: "application/json",
@@ -8,8 +8,8 @@ function Load(ticker) {
   return [[json.payload.price.value, json.payload.price.currency]];
 }
 
-function Portfolio(apiKey) {
-  var res = UrlFetchApp.fetch("https://api-invest.tinkoff.ru/openapi/portfolio", {
+function Portfolio(apiKey, brokerAccountId) {
+  var res = UrlFetchApp.fetch("https://api-invest.tinkoff.ru/openapi/portfolio" + (brokerAccountId ? "?brokerAccountId=" + brokerAccountId : "") , {
     method: "get",
     contentType: "application/json",
     headers: { Authorization: "Bearer " + apiKey }
@@ -24,7 +24,7 @@ function Portfolio(apiKey) {
         position.balance,
         position.averagePositionPrice.currency,
         position.averagePositionPrice.value,
-        position.averagePositionPrice.value * position.balance
+        position.averagePositionPrice.value * position.balance,
         position.expectedYield.value
       ]
     );
